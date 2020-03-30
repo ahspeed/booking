@@ -1,12 +1,12 @@
 <template>
   <div class="Login">
-    <h2>登录</h2>
-    <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-  <van-swipe-item>1</van-swipe-item>
-  <van-swipe-item>2</van-swipe-item>
-  <van-swipe-item>3</van-swipe-item>
-  <van-swipe-item>4</van-swipe-item>
-</van-swipe>
+    <van-image
+      round
+      width="6rem"
+      height="6rem"
+      src="http://file.x-wz.com/image/5G.png"
+    />
+    <h3>登录</h3>
     <van-form validate-first @failed="onFailed">
       <!-- 通过 pattern 进行正则校验 -->
       <van-field
@@ -29,31 +29,35 @@
         placeholder="验证码"
         :rules="[{ validator: asyncValidator, message: '6位' }]"
       />
-      <div style="margin: 16px;">
+      <div style="margin-top:40px;">
         <van-button round block type="info" native-type="submit">
           提交
         </van-button>
       </div>
     </van-form>
+    
   </div>
 </template>
 
 <script>
 import Vue from "vue";
-import{ Button } from "vant"
+import { Button } from "vant";
 import { Col, Row } from "vant";
-import { Field } from 'vant';
+import { Field } from "vant";
 import { Form } from "vant";
 import { Toast } from "vant";
-import { Swipe, SwipeItem } from 'vant';
+
+import { Image } from "vant";
+
+Vue.use(Image);
 
 Vue.use(Button);
 Vue.use(Col);
 Vue.use(Row);
 Vue.use(Field);
 Vue.use(Form);
-Vue.use(Swipe);
-Vue.use(SwipeItem);
+
+
 
 export default {
   name: "Login",
@@ -89,13 +93,5 @@ export default {
 };
 </script>
 <style>
-.my-swipe .van-swipe-item {
-  color: #fff;
-  font-size: 20px;
-  line-height: 150px;
-  text-align: center;
-  background-color: #39a9ed;
-}
-
 
 </style>
